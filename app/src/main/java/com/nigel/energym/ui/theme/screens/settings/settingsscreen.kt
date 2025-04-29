@@ -1,4 +1,4 @@
-package com.nigel.energym.ui.theme.screens.workouts
+package com.nigel.energym.ui.theme.screens.settings
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -7,13 +7,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun WorkoutScreen(navController: NavHostController) {
+fun SettingsScreen(navController: NavHostController) {
 
 }
 
 @Preview
 @Composable
-private fun Workoutpage() {
-    WorkoutScreen(rememberNavController())
-
+private fun Settingspage() {
+    SettingsScreen(rememberNavController())
 }

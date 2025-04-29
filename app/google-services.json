@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "730951821811",
+    "project_id": "energym-ffbd0",
+    "storage_bucket": "energym-ffbd0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730951821811:android:a7d9b8418012b15b2bca86",
+        "android_client_info": {
+          "package_name": "com.nigel.energym"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-GzKtCKodzkEdcHPHHBC_x01EVhszgFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

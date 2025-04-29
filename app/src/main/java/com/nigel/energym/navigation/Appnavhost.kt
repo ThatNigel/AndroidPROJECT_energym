@@ -1,17 +1,41 @@
 package com.nigel.energym.navigation
 
-import android.window.SplashScreen
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import kotlinx.coroutines.delay
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.nigel.energym.ui.theme.screens.home.HomeScreen
+import com.nigel.energym.ui.theme.screens.login.LoginScreen
+import com.nigel.energym.ui.theme.screens.profile.ProfileSCreen
+import com.nigel.energym.ui.theme.screens.settings.SettingsScreen
+import com.nigel.energym.ui.theme.screens.splash.SplashScreen
+import com.nigel.energym.ui.theme.screens.workouts.WorkoutScreen
 
 @Composable
-fun SplashScreen(modifier: Modifier = Modifier) {
-    LaunchedEffect(Unit) {
-        delay(2000)
+fun AppNavHost(modifier: Modifier = Modifier,navController: NavHostController= rememberNavController(),startDestination:String= ROUTE_SPLASH) {
+    NavHost(navController = navController, modifier = modifier, startDestination = startDestination) {
+        composable(ROUTE_SPLASH) {
+            SplashScreen(navController)
+        }
+        composable ( ROUTE_LOGIN ){
+            LoginScreen(navController)
+        }
+        composable(ROUTE_HOME){
+            HomeScreen(navController)
+        }
+        composable(ROUTE_PROFILE){
+            ProfileSCreen(navController)
+        }
+        composable(ROUTE_SETTINGS){
+            SettingsScreen(navController)
+        }
+        composable(ROUTE_WORKOUT){
+            WorkoutScreen(navController)
+        }
+
+
+
     }
-    Box(contentAlignment = Alignment.Center){}
 }
