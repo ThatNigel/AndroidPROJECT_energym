@@ -23,7 +23,7 @@ fun AppNavHost(modifier: Modifier = Modifier,navController: NavHostController= r
             LoginScreen(navController)
         }
         composable(ROUTE_HOME){
-            HomeScreen(navController)
+            HomeScreen(userName = String(),navController)
         }
         composable(ROUTE_PROFILE){
             ProfileSCreen(navController)
