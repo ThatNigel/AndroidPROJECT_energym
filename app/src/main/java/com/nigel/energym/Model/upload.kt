@@ -5,7 +5,7 @@ import kotlin.time.Duration.Companion.seconds
 
 class Upload{
     var Workout:String=""
-    var Time: Int=30
+    var Time: Int=0
     var id:String=""
 
     constructor(name:String,quantity:String,price:String,imageUrl:String,id:String){

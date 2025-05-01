@@ -1,6 +1,5 @@
 package com.nigel.energym.data
 
-import android.R
 import android.app.ProgressDialog
 import android.content.Context
 import android.widget.Toast
@@ -23,14 +22,14 @@ class AuthViewModel(var navController:NavHostController,var context:Context){
         progress.setTitle("Loading")
         progress.setMessage("PLease Wait.....")
     }
-    fun signup(email:String, password:String, confpassword: String){
+    fun login(email:String, password:String, confirmpassword: String){
         progress.show()
 
-        if (email.isBlank() || password.isBlank() ||confpassword.isBlank()){
+        if (email.isBlank() || password.isBlank() ||confirmpassword.isBlank()){
             progress.dismiss()
             Toast.makeText(context,"Please email and password cannot be blank",Toast.LENGTH_LONG).show()
             return
-        }else if (password != confpassword){
+        }else if (password != confirmpassword){
             Toast.makeText(context,"Password do not match",Toast.LENGTH_LONG).show()
             return
         }else{
@@ -55,22 +54,22 @@ class AuthViewModel(var navController:NavHostController,var context:Context){
             } }
 
     }
-    fun login(email: String,password: String){
-        progress.show()
-
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
-            progress.dismiss()
-            if (it.isSuccessful){
-                Toast.makeText(context,"Succeffully Logged in",Toast.LENGTH_LONG).show()
-                navController.navigate(ROUTE_HOME)
-//                navController.navigate(ROUTE_REGISTER)TO TAKE YOU TO A DIIFFERNT PAGE
-            }else{
-                Toast.makeText(context,"${it.exception!!.message}",Toast.LENGTH_LONG).show()
-                navController.navigate(ROUTE_LOGIN)
-            }
-        }
-
-    }
+//    fun login(email: String,password: String){
+//        progress.show()
+//
+//        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
+//            progress.dismiss()
+//            if (it.isSuccessful){
+//                Toast.makeText(context,"Succeffully Logged in",Toast.LENGTH_LONG).show()
+//                navController.navigate(ROUTE_HOME)
+////                navController.navigate(ROUTE_REGISTER)TO TAKE YOU TO A DIIFFERNT PAGE
+//            }else{
+//                Toast.makeText(context,"${it.exception!!.message}",Toast.LENGTH_LONG).show()
+//                navController.navigate(ROUTE_LOGIN)
+//            }
+//        }
+//
+//    }
     fun logout(){
         mAuth.signOut()
         navController.navigate(ROUTE_LOGIN)
@@ -78,4 +77,5 @@ class AuthViewModel(var navController:NavHostController,var context:Context){
     fun isloggedin():Boolean{
         return mAuth.currentUser !=null
     }}
+
 
