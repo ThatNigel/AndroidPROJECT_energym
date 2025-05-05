@@ -54,7 +54,7 @@ fun LoginScreen(navController: NavHostController) {
             .fillMaxSize()
     ) {
         Column(
-            modifier = Modifier.background(Color.Cyan),
+            modifier = Modifier.background(Color.Cyan).padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -74,7 +74,7 @@ fun LoginScreen(navController: NavHostController) {
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp),
+                    .padding( vertical=8.dp),
                 shape = RoundedCornerShape(60.dp),
             )
 //            USERNAMEINPUT
@@ -84,7 +84,7 @@ fun LoginScreen(navController: NavHostController) {
                 placeholder = { Text("Enter your Username") },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp),
+                    .padding( vertical = 8.dp),
                 shape = RoundedCornerShape(60.dp)
 
             )
@@ -100,7 +100,7 @@ fun LoginScreen(navController: NavHostController) {
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp),
+                .padding(vertical =  8.dp),
             shape = RoundedCornerShape(60.dp),
                 )
 
@@ -111,7 +111,7 @@ fun LoginScreen(navController: NavHostController) {
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp),
+                    .padding(vertical =  8.dp),
                 shape = RoundedCornerShape(60.dp),
 
             )
@@ -120,7 +120,7 @@ fun LoginScreen(navController: NavHostController) {
 //            LOGINBUTTON
             Button(onClick = {
                 val mylogin= AuthViewModel(navController, context )
-                mylogin.login(email.text.trim(),password.text.trim())
+                mylogin.login(email.text.trim(),password.text.trim(),confirmpassword.text.trim())
 
             }, modifier = Modifier
                 .width(100.dp)

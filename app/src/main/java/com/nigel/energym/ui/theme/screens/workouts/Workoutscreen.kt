@@ -25,11 +25,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.nigel.energym.data.WorkoutViewModel
 
 @Composable
 fun WorkoutScreen(
-    viewModel: WorkoutViewModel,onCategoryClick: (Int) -> Unit,navController=navHostController
+    viewModel: WorkoutViewModel,onCategoryClick: (Int) -> Unit,navController: NavHostController
 ){
     val categories =viewModel.categories
 //    val selectedIndex by viewModel.selectedCategoryIndex
@@ -84,6 +86,4 @@ fun WorkoutScreen(
 @androidx.compose.ui.tooling.preview.Preview
 @androidx.compose.runtime.Composable
 private fun Workoutpage() {
-    WorkoutScreen(remembernavController())
-
-}
+    WorkoutScreen()

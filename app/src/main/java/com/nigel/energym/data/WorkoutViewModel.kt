@@ -4,9 +4,11 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.nigel.energym.Model.Exercise
 import com.nigel.energym.Model.WorkoutCategory
+import androidx.compose.runtime.State
 
 class WorkoutViewModel : ViewModel(){
     private val db = Firebase.firestore
@@ -127,7 +129,7 @@ class WorkoutViewModel : ViewModel(){
     }
     }
 
-class Screen(val route: String){
+open class Screen(val route: String){
     object Workout : Screen("workout")
     object ExerciseDetail : Screen("categories[selectedIndex].exercises"){
         fun createRoute(categoryIndex: Int) = "exerciseDetail/$categoryIndex"

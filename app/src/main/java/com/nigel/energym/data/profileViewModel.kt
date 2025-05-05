@@ -1,8 +1,13 @@
 package com.nigel.energym.data
 
+import androidx.annotation.OptIn
 import androidx.lifecycle.ViewModel
 import androidx.media3.common.util.Log
+import androidx.media3.common.util.UnstableApi
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class ProfileViewModel : ViewModel() {
 
@@ -19,6 +24,7 @@ class ProfileViewModel : ViewModel() {
         loadUserData()
     }
 
+    @OptIn(UnstableApi::class)
     fun loadUserData() {
         val uid = auth.currentUser?.uid ?: return
         db.collection("users").document(uid).get()
@@ -57,5 +63,5 @@ data class UserProfile(
     val name: String,
     val height: Int,
     val weight: Int,
-    val profilePicUrl: String
+    val profilePicUrl: String,
 )
