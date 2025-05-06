@@ -16,13 +16,15 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.R
+import com.nigel.energym.navigation.ROUTE_LOGIN
 import kotlinx.coroutines.delay
 
 
 @Composable
 fun SplashScreen(navController: NavHostController) {
     LaunchedEffect(Unit) {
-        delay(2000)
+        delay(1000)
+        navController.navigate(ROUTE_LOGIN)
     }
 
     Box (

@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +37,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.data.AuthViewModel
+import com.nigel.energym.navigation.ROUTE_PROFILE
+import com.nigel.energym.navigation.ROUTE_WORKOUT
 
 @Composable
 fun LoginScreen(navController: NavHostController) {
@@ -118,7 +121,7 @@ fun LoginScreen(navController: NavHostController) {
 
 
 //            LOGINBUTTON
-            Button(onClick = {
+            Button(onClick ={
                 val mylogin= AuthViewModel(navController, context )
                 mylogin.login(email.text.trim(),password.text.trim(),confirmpassword.text.trim())
 

@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -23,9 +25,15 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -34,9 +42,9 @@ import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.navigation.ROUTE_WORKOUT
 
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun HomeScreen( userName: String,navController: NavHostController) {
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun HomeScreen( userName: String,navController: NavHostController) {
 //    Scaffold(
 //        topBar = {
 //            TopAppBar(
@@ -174,12 +182,12 @@ fun HomeScreen( userName: String,navController: NavHostController) {
 
 
 
-@Preview
-@Composable
-private fun Homepage() {
-    HomeScreen(userName = String(),rememberNavController())
-
-}
+//@Preview
+//@Composable
+//private fun Homepage() {
+//    HomeScreen(userName = String(),rememberNavController())
+//
+//}
 
 
 @Preview(showSystemUi = true)
@@ -218,7 +226,7 @@ fun DefaultPreview() {
                             append("Hello, ")
                             withStyle(
                                 style = SpanStyle(
-                                    color = colorResource(id = R.color.black),
+                                    color = colorResource(id = R.),
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 20.sp
                                 )

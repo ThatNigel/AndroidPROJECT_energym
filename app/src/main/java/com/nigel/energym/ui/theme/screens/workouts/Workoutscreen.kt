@@ -24,17 +24,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.nigel.energym.data.WorkoutViewModel
+import com.nigel.energym.ui.theme.screens.workouts.WorkoutScreen
 
 @Composable
 fun WorkoutScreen(
     viewModel: WorkoutViewModel,onCategoryClick: (Int) -> Unit,navController: NavHostController
 ){
     val categories =viewModel.categories
-//    val selectedIndex by viewModel.selectedCategoryIndex
+    val selectedIndex by viewModel.selectedCategoryIndex
 
     Column(Modifier.fillMaxSize().padding(16.dp)){
         Text("Workout",style = MaterialTheme.typography.headlineLarge)
@@ -56,12 +58,14 @@ fun WorkoutScreen(
         Text("Exercises",style = MaterialTheme.typography.headlineLarge)
 
 //        val exercises = categories[selectedIndex].exercises
+//        val exercises = categories.getOrNull(viewModel.selectedCategoryIndex)?.exercises ?: emptyList()
 
-        LazyColumn (modifier = Modifier.weight(1f)){
-            items(exercises){exercise ->
-                Text(".${exercise.name}",modifier = Modifier.padding(8.dp))
-            }
-        }
+
+//        LazyColumn (modifier = Modifier.weight(1f)){
+//            items(exercises){exercise ->
+//                Text(".${exercise.name}",modifier = Modifier.padding(8.dp))
+//            }
+//        }
 
         var newExercise by remember { mutableStateOf("")}
 
@@ -83,7 +87,11 @@ fun WorkoutScreen(
     }
 }
 
-@androidx.compose.ui.tooling.preview.Preview
-@androidx.compose.runtime.Composable
-private fun Workoutpage() {
-    WorkoutScreen()
+//@androidx.compose.ui.tooling.preview.Preview
+//@androidx.compose.runtime.Composable
+//private fun Workoutpage() {
+//    val fakeViewModel = WorkoutViewModel() // Ideally mocked
+//    WorkoutScreen(  viewModel = fakeViewModel,
+//        onCategoryClick = {},
+//        navController = NavHostController) // This may crash in preview, so use PreviewParameter if needed
+//}

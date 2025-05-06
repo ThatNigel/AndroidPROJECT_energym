@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.nigel.energym.Model.Exercise
 import com.nigel.energym.data.WorkoutViewModel
 
 @Composable
@@ -33,11 +34,11 @@ fun ExerciseDetailScreen(categoryIndex: Int, viewModel: WorkoutViewModel) {
 
         Text("${category.name} Exercises", style = MaterialTheme.typography.headlineLarge)
 
-        LazyColumn(modifier = Modifier.weight(1f)) {
-            items(category.exercises) { exercise ->
-                Text("• ${exercise.name}", modifier = Modifier.padding(8.dp))
-            }
-        }
+//        LazyColumn(modifier = Modifier.weight(1f)) {
+//            items(category.exercises) { exercise ->
+//                Text("• ${Exercise.name}", modifier = Modifier.padding(8.dp))
+//            }
+//        }
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             TextField(
