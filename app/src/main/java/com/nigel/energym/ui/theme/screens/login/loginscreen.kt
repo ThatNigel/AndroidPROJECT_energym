@@ -121,10 +121,12 @@ fun LoginScreen(navController: NavHostController) {
 
 
 //            LOGINBUTTON
-            Button(onClick ={
-                val mylogin= AuthViewModel(navController, context )
-                mylogin.login(email.text.trim(),password.text.trim(),confirmpassword.text.trim())
+            Button(onClick = {
+                navController.navigate(ROUTE_PROFILE){
+                    val mylogin= AuthViewModel(navController, context )
+                    mylogin.login(email.text.trim(),password.text.trim(),confirmpassword.text.trim())
 
+                }
             }, modifier = Modifier
                 .width(100.dp)
                 .height(50.dp)) {

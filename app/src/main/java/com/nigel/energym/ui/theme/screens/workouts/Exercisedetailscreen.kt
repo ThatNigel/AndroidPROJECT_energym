@@ -20,11 +20,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.nigel.energym.Model.Exercise
 import com.nigel.energym.data.WorkoutViewModel
 
 @Composable
-fun ExerciseDetailScreen(categoryIndex: Int, viewModel: WorkoutViewModel) {
+fun ExerciseDetailScreen(categoryIndex: Int, viewModel: WorkoutViewModel,navController: NavHostController) {
     val category = viewModel.categories[categoryIndex]
     var newExercise by remember { mutableStateOf("") }
 

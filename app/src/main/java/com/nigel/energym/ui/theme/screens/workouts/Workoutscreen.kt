@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.nigel.energym.data.WorkoutViewModel
+import com.nigel.energym.navigation.ROUTE_WORKOUTDETAILS
 import com.nigel.energym.ui.theme.screens.workouts.WorkoutScreen
 
 @Composable
@@ -76,9 +77,12 @@ fun WorkoutScreen(
                 modifier = Modifier.weight(1f),
                 placeholder = {"Add  new exercise"}
             )
-            IconButton(onClick = {
-                if(newExercise.isNotBlank()){viewModel.addExercise(newExercise)
-                    newExercise = ""
+            IconButton(onClick =
+                {
+                navController.navigate(ROUTE_WORKOUTDETAILS){
+                    if(newExercise.isNotBlank()){viewModel.addExercise(newExercise)
+                        newExercise = ""
+                    }
                 }
             }){
                 Icon(Icons.Default.Add, contentDescription = "Add")
