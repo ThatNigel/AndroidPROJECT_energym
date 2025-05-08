@@ -40,7 +40,7 @@ fun WorkoutScreen(
     val selectedIndex by viewModel.selectedCategoryIndex
 
     Column(Modifier.fillMaxSize().padding(16.dp)){
-        Text("Workout",style = MaterialTheme.typography.headlineLarge)
+        Text("Workouts",style = MaterialTheme.typography.headlineLarge)
 
         LazyRow (modifier = Modifier.padding(vertical = 16.dp)){
             itemsIndexed(categories){index,category ->

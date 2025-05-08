@@ -1,62 +1,83 @@
 package com.nigel.energym.ui.theme.screens.home
 
-import android.R.attr.onClick
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.R
+import com.nigel.energym.navigation.ROUTE_PROFILE
 import com.nigel.energym.navigation.ROUTE_WORKOUT
+import kotlin.io.encoding.Base64
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen( userName: String,navController: NavHostController) {
+    val context = LocalContext.current
+
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Hey, $userName") },
+                actions = {
+                    BadgedBox(
+                        badge = {
+                            Badge{Text("")} }
+                    ) {
+                        IconButton(onClick =
+                            {navController.navigate(ROUTE_PROFILE)}) {
+                            Icon(
+                                imageVector = Icons.Filled.Person,
+                                contentDescription = "profile icon",
+                                tint = Color.White,
+                                modifier = Modifier.size(30.dp)
+
+                            )
+
+                        }
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Blue,
-                    titleContentColor = Color.Green
+                    containerColor = Color.Black,
+                    titleContentColor = Color.LightGray
                 )
+
             )
         }
+
     ) { paddingvalues ->
         LazyColumn(
             modifier = Modifier
@@ -72,7 +93,9 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         .clickable { navController.navigate(ROUTE_WORKOUT) },  // Navigate when clicked
 //                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
-                    Box(modifier = Modifier.fillMaxSize().height(400.dp)) {
+                    Box(modifier = Modifier
+                        .fillMaxSize()
+                        .height(400.dp)) {
                         // Background Image
                         Image(
                             painter = painterResource(id = R.drawable.upperbody),
@@ -83,15 +106,54 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 text = "Upper Body Workouts ",
-                                style = MaterialTheme.typography.headlineLarge
+                                style = MaterialTheme.typography.headlineLarge,color = Color.Magenta
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 text = "There are various workouts for the upper body " +
                                         "depending on the area you want to focus on . " +
                                         "It is broken down into Arms(Biceps,Triceps,Forearms),Shoulder and Back," +
-                                        "Chest,Abs", style = MaterialTheme.typography.bodyMedium
+                                        "Chest,Abs", style = MaterialTheme.typography.bodyMedium,color = Color.Green
                             )
+                        }
+                    }
+                }
+            }
+            item{
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp)
+                        .clickable {
+                            val urlIntent = Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://www.livofy.com/health/gym-diet-plan/")
+                            )
+                            context.startActivity(urlIntent)
+                        }
+                ){
+
+                    Box(modifier = Modifier
+                        .fillMaxSize()
+                        .height(400.dp)) {
+                        // Background Image
+                        Image(
+                            painter = painterResource(id = R.drawable.food),
+                            contentDescription = "Background Image",
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop // Crop the image to fill the card
+                        )
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = "Food Nutrition plan",
+                                style = MaterialTheme.typography.headlineLarge
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text ="For more information click here",
+                                style = MaterialTheme.typography.bodyMedium,color = Color.Green
+                            )
+//
                         }
                     }
                 }
@@ -106,7 +168,9 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         .clickable { (navController.navigate(ROUTE_WORKOUT)) },  // Navigate when clicked
 //                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
-                    Box(modifier = Modifier.fillMaxSize().height(400.dp)) {
+                    Box(modifier = Modifier
+                        .fillMaxSize()
+                        .height(400.dp)) {
                         // Background Image
                         Image(
                             painter = painterResource(id = R.drawable.lowerbody),
@@ -117,14 +181,14 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 text = "Lower Body Workouts ",
-                                style = MaterialTheme.typography.headlineLarge
+                                style = MaterialTheme.typography.headlineLarge,color = Color.Magenta
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 text = "There are various workouts for the lower body " +
                                         "depending on the area you want to focus on . " +
                                         "It is broken down into Quads,Glutes,Hamstring and Calves",
-                                style = MaterialTheme.typography.bodyMedium
+                                style = MaterialTheme.typography.bodyMedium,color = Color.Green
                             )
                         }
                     }
@@ -172,11 +236,10 @@ fun HomeScreen( userName: String,navController: NavHostController) {
 
 
 
-
 @Preview(showBackground = true)
 @Composable
 private fun Homepage() {
-    HomeScreen(userName = "Nigel",rememberNavController())
+    HomeScreen(userName = "Guest",rememberNavController())
 
 }
 

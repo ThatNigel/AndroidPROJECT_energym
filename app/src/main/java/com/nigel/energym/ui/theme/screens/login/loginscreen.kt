@@ -11,7 +11,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -37,6 +41,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.data.AuthViewModel
+import com.nigel.energym.navigation.ROUTE_HOME
 import com.nigel.energym.navigation.ROUTE_PROFILE
 import com.nigel.energym.navigation.ROUTE_WORKOUT
 
@@ -74,6 +79,7 @@ fun LoginScreen(navController: NavHostController) {
             TextField(
                 value = email, onValueChange = { email = it },
                 label = { Text(text = "Enter Email") },
+                leadingIcon = { Icon(Icons.Default.Email , contentDescription = "Email")},
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -100,6 +106,7 @@ fun LoginScreen(navController: NavHostController) {
             TextField(value =password , onValueChange = {password=it},
             label = { Text(text = "Enter Password")
                     FontFamily.Monospace},
+                leadingIcon = {Icon(Icons.Default.Lock , contentDescription = "Password")},
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
             modifier = Modifier
                 .fillMaxWidth()
@@ -111,6 +118,7 @@ fun LoginScreen(navController: NavHostController) {
                 value = confirmpassword, onValueChange = { confirmpassword = it },
                 label = { Text(" Confirm Password")
                     FontFamily.Monospace},
+                leadingIcon = {Icon(Icons.Default.Lock , contentDescription = "Password")},
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -122,7 +130,7 @@ fun LoginScreen(navController: NavHostController) {
 
 //            LOGINBUTTON
             Button(onClick = {
-                navController.navigate(ROUTE_PROFILE){
+                navController.navigate(ROUTE_HOME){
                     val mylogin= AuthViewModel(navController, context )
                     mylogin.login(email.text.trim(),password.text.trim(),confirmpassword.text.trim())
 
