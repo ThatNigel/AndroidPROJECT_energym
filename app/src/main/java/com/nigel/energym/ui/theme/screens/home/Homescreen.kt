@@ -37,7 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.R
+import com.nigel.energym.navigation.ROUTE_LOWER
 import com.nigel.energym.navigation.ROUTE_PROFILE
+import com.nigel.energym.navigation.ROUTE_UPPER
 import com.nigel.energym.navigation.ROUTE_WORKOUT
 import kotlin.io.encoding.Base64
 
@@ -90,7 +92,7 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp)
-                        .clickable { navController.navigate(ROUTE_WORKOUT) },  // Navigate when clicked
+                        .clickable { navController.navigate(ROUTE_UPPER) },  // Navigate when clicked
 //                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
                     Box(modifier = Modifier
@@ -165,7 +167,7 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp)
-                        .clickable { (navController.navigate(ROUTE_WORKOUT)) },  // Navigate when clicked
+                        .clickable { (navController.navigate(ROUTE_LOWER)) },  // Navigate when clicked
 //                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
                     Box(modifier = Modifier

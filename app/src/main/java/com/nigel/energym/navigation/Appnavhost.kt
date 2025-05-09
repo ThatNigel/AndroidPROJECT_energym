@@ -12,6 +12,8 @@ import com.nigel.energym.ui.theme.screens.login.LoginScreen
 import com.nigel.energym.ui.theme.screens.profile.Profilescreen
 import com.nigel.energym.ui.theme.screens.splash.SplashScreen
 import com.nigel.energym.ui.theme.screens.workouts.ExerciseDetailScreen
+import com.nigel.energym.ui.theme.screens.workouts.Lowerscreen
+import com.nigel.energym.ui.theme.screens.workouts.UpperBodyscreen
 import com.nigel.energym.ui.theme.screens.workouts.WorkoutScreen
 
 @Composable
@@ -41,6 +43,13 @@ fun AppNavHost(
             WorkoutScreen(viewModel(),onCategoryClick = {
                 navController.navigate(ROUTE_WORKOUTDETAILS)
             },navController)
+        }
+        composable(ROUTE_UPPER){
+            UpperBodyscreen(navController)
+
+        }
+        composable(ROUTE_LOWER){
+            Lowerscreen(navController)
         }
 
 

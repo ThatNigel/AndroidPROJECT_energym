@@ -11,6 +11,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -22,6 +23,7 @@ fun Profilescreen(navController: NavHostController) {
     val viewModel: ProfileViewModel = viewModel()
     val userData = viewModel.userData.collectAsState().value
     val quote = viewModel.quote.collectAsState().value
+    val context = LocalContext.current
 
     userData?.let { user ->
         Profilescreen(
