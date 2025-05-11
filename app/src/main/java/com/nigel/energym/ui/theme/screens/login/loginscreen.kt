@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
@@ -90,6 +91,7 @@ fun LoginScreen(navController: NavHostController) {
             TextField( value = userName,
                 onValueChange = {userName=it},
                 label = { Text("Username ") },
+                leadingIcon = { Icon(Icons.Default.AccountCircle , contentDescription = "User")},
                 placeholder = { Text("Enter your Username") },
                 modifier = Modifier
                     .fillMaxWidth()

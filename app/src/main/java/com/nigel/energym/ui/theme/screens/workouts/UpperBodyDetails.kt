@@ -30,6 +30,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -88,7 +89,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 "ARMS", textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold,
+                                fontWeight = FontWeight.Bold,
                             )
                             Spacer(modifier = Modifier.height(30.dp))
                             Text("There are Various ways to workout the Arms .")
@@ -96,7 +97,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                             Text(
                                 "1.Beginner",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a. Side arm raises :Do this for 30 second(Use a stopwatch)\nb.Tricep dips: 5 sets each 10 reps\nc.Arm circles clockwise and anticlockwise :each for 30 second\nd. Diamond push ups :PLACE YOUR HANDS BELOW YOUR CHEST:3 sets each 10 reps\ne.Push ups :3 sets each 10 reps\nf.Forearm curls using 5kg weights:4 sets each 10 reps\ng.Jumping jacks :30 second timer")
@@ -104,7 +105,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                             Text(
                                 "2.Intermediate",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Arm circles clockwise abd anti clockwise :each for 30 second\nb.Floor tricep dips:5 sets each 10 reps\nc.Push  ups:5 sets each 20 reps\nd.Push up and rotation:4 sets each 5 reps\ne.Burpees:3 sets each 10 reps\nf.Tricep stretches :do for 30 seconds\ng.Rope skipping :10 sets each 40 oscillation\nh.Push up and hold:3 sets each 10 reps\ni.Archer push ups :2 sets each 15 reps\nj.Diamond push ups :2 sets each 15 reps")
@@ -112,7 +113,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                             Text(
                                 "3.Advanced",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Stagger push ups: 3 sets each 10 reps\nb.Hindu push ups :2 sets each 10 reps")
@@ -135,7 +136,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 "CHEST", textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold,
+                                fontWeight = FontWeight.Bold,
                             )
                             Spacer(modifier = Modifier.height(30.dp))
                             Text("There are Various ways to workout the Chest.")
@@ -143,7 +144,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                             Text(
                                 "1.Beginner",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Incline push ups :4 sets each 10 reps\nb.knee push ups: 3 sets each 15 reps\nc.Push ups:3 sets each 10 reps\nd.Wide arm push ups:2 sets each 15 reps\ne.Decline push ups:3 sets each 10 reps\nf.Hindu push ups:2 sets each 15 reps\ng.Cobra stretch:30 seconds")
@@ -151,15 +152,15 @@ fun UpperBodyscreen(navController: NavHostController) {
                             Text(
                                 "2.Intermediate",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Jumping jacks:30 second\nb.Knee push ups :3 sets each 10 reps\nc.Staggered push ups:2 sets each 15 reps\nd.Push ups and rotation:2 sets each 10 reps\ne.Decline push up :3 sets each 10 reps\nf.Box push ups :3 sets each 16 reps\ng.Wide arm push ups:2 sets each 15 reps\nh.Cobra stretch:30 seconds")
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 "3.Advanced",
-                                textDecoration = TextDecoration.Underline,)
-//                                fontWeight = FontWeight.Bold)
+                                textDecoration = TextDecoration.Underline,
+                                fontWeight = FontWeight.Bold)
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Incline push ups :4 sets each 10 reps\nb.Decline push ups :3 sets each 15 reps\nc.Burpees:3 sets each 15 reps\nd.Spiderman push ups 2 sets each 15 reps\ne.Arm Circles:one minute\nf.Cobra stretch:30 seconds")
 
@@ -186,7 +187,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 "SHOULDER & BACK", textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold,
+                                fontWeight = FontWeight.Bold,
                             )
                             Spacer(modifier = Modifier.height(30.dp))
                             Text("There are Various ways to workout the shoulder and back .")
@@ -229,7 +230,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 "ABS", textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold,
+                                fontWeight = FontWeight.Bold,
                             )
                             Spacer(modifier = Modifier.height(30.dp))
                             Text("There are Various ways to workout the abdominals.")

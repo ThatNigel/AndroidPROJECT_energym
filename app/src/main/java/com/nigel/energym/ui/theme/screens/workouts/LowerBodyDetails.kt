@@ -37,6 +37,7 @@ import androidx.compose.material3.Card
 import androidx.compose.ui.res.colorResource
 import com.nigel.energym.R
 import android.R.attr.fontWeight
+import androidx.compose.ui.text.font.FontWeight
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -84,7 +85,7 @@ fun Lowerscreen(navController: NavHostController){
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 "Legs", textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold,
+                                fontWeight = FontWeight.Bold,
                             )
                             Spacer(modifier = Modifier.height(30.dp))
                             Text("There are Various ways to workout the Lower Body .")
@@ -92,7 +93,7 @@ fun Lowerscreen(navController: NavHostController){
                             Text(
                                 "1.Beginner",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Side Hop:30 seconds\nb.Squats:3 sets each 20 reps\nc.Backward Lunge:2 sets each 15 reps\nd.Side lying leg lift :2 sets each 20 reps for each leg\ne.Donkey kicks :3 sets each 20 reps\nf.Calf raises:5 sets each 15 reps\ng.Sumo squat :3 sets each 15 reps")
@@ -100,7 +101,7 @@ fun Lowerscreen(navController: NavHostController){
                             Text(
                                 "2.Intermediate",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Jumping jacks:30 second\nb.Squats:3 sets each 20 reps\nc.Fire Hydrant:2 sets each 15 reps each leg\nd.Lunges:4 sets each 25 reps\ne.Sumo squat:3 sets each 20 reps\nf.Reverse Flutter Kicks:3 sets each 15 reps\ng.Calf raises:3 sets each 25 reps\nh.Calf stretch:30 seconds ")
@@ -108,7 +109,7 @@ fun Lowerscreen(navController: NavHostController){
                             Text(
                                 "3.Advanced",
                                 textDecoration = TextDecoration.Underline,
-//                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text("a.Burpees:3 sets each 15 reps\nb.Squats:3 sets each 25 reps\nc.Bottom leg lift:lie side way and cross your legs :3 sets each 15 reps\nd.Curtsy Lunges:3 sets each 20 reps\ne.Jumping jacks:3 sets each 20 reps\nf.Glute kickback:3 sets each 15 reps\ng.Wall sit :45 seconds\nh.Single calf raise:4 sets each 20 reps (remember to alternate)\ni.Touch your toes:30 seconds(DON'T BEND YOUR KNEES)")

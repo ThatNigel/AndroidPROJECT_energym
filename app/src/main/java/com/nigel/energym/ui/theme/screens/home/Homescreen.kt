@@ -64,7 +64,7 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                             Badge{Text("")} }
                     ) {
                         IconButton(onClick =
-                            {navController.navigate(ROUTE_PROFILE)}) {a
+                            {navController.navigate(ROUTE_PROFILE)}) {
                             Icon(
                                 imageVector = Icons.Filled.Person,
                                 contentDescription = "profile icon navigation",
@@ -217,7 +217,7 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         .height(400.dp)) {
                         // Background Image
                         Image(
-                            painter = painterResource(id = R.drawable.lowerbody),
+                            painter = painterResource(id = R.drawable.cycling),
                             contentDescription = "Background Image",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop // Crop the image to fill the card
@@ -244,7 +244,7 @@ fun HomeScreen( userName: String,navController: NavHostController) {
 @Preview(showBackground = true)
 @Composable
 private fun Homepage() {
-    HomeScreen(userName = "Guest",rememberNavController())
+    HomeScreen(userName = " Nigel",rememberNavController())
 
 }
 

@@ -5,7 +5,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,11 +30,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavHostController) {
-//    Column(
-//        modifier = Modifier.fillMaxSize(),
-//        horizontalAlignment = Alignment.CenterHorizontally,
-//        verticalArrangement = Arrangement.Bottom,
-//    ) {}
+
 
 
 
@@ -49,17 +47,23 @@ fun SplashScreen(navController: NavHostController) {
                 .background(Color.White)
         )
         {
+            Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+                Image(
+                    painter = painterResource(id = R.drawable.dumbell),
+                    contentDescription = "Splash Screen logo",
+                    modifier = Modifier.size(150.dp)
+                )
+                Text(
+                    text = " WELCOME TO ENERGYM", color = Color.Black,
+                    style = MaterialTheme.typography.headlineLarge,
+                    fontWeight = FontWeight.Bold
+                )
+            }
 
-            Image(
-                painter = painterResource(id = R.drawable.dumbell),
-                contentDescription = "Splash Screen logo",
-                modifier = Modifier.size(150.dp)
-            )
-            Text(
-                text = " WELCOME TO ENERGYM", color = Color.Black,
-                style = MaterialTheme.typography.headlineLarge,
-                fontWeight = FontWeight.Bold
-            )
         }
 
 

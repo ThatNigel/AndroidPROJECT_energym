@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -76,7 +77,8 @@ fun Profilescreen(navController: NavHostController) {
             onValueChange = { weightInput = it },
             label = { Text("Weight (kg)") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            shape =   RoundedCornerShape(40.dp)
         )
 
         OutlinedTextField(
@@ -84,7 +86,9 @@ fun Profilescreen(navController: NavHostController) {
             onValueChange = { heightInput = it },
             label = { Text("Height (cm)") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            shape =   RoundedCornerShape(40.dp)
+
         )
 
         Button(
