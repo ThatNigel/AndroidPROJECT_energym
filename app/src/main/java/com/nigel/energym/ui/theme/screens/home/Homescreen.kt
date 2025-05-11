@@ -119,7 +119,7 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                                 text = "There are various workouts for the upper body " +
                                         "depending on the area you want to focus on . " +
                                         "It is broken down into Arms(Biceps,Triceps,Forearms),Shoulder and Back," +
-                                        "Chest,Abs", style = MaterialTheme.typography.bodyMedium,color = Color.Black
+                                        "Chest,Abs", style = MaterialTheme.typography.bodyMedium,color = Color.White
                             )
                         }
                     }
@@ -194,7 +194,7 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                                 text = "There are various workouts for the lower body " +
                                         "depending on the area you want to focus on . " +
                                         "It is broken down into Quads,Glutes,Hamstring and Calves",
-                                style = MaterialTheme.typography.bodyMedium,color = Color.DarkGray
+                                style = MaterialTheme.typography.bodyMedium,color = Color.White
                             )
                         }
                     }

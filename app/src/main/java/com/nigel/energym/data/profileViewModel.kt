@@ -1,67 +1,111 @@
 package com.nigel.energym.data
 
-import androidx.annotation.OptIn
 import androidx.lifecycle.ViewModel
-import androidx.media3.common.util.Log
-import androidx.media3.common.util.UnstableApi
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+
+data class UserProfileData(
+    val id:String ="",
+    val name:String="",
+    val photoUrl:String="",
+    val height:Int=0,
+    val weight:Float=0f,
+    val age:Int=0,
+    val goal:String="",
+    val activityLevel:String="",
+    val workoutsCompleted: Int = 0,
+    val caloriesBurned: Int = 0,
+    val minutesExercised: Int = 0,
+    val streakDays: Int = 0
+)
+sealed class ProfileUiState {
+    object Loading : ProfileUiState()
+    data class Success(val userData: UserProfileData) : ProfileUiState()
+    data class Error(val message: String) : ProfileUiState()
+}
 
 class ProfileViewModel : ViewModel() {
 
-    private val auth = FirebaseAuth.getInstance()
-    private val db = FirebaseFirestore.getInstance()
-
-    private val _userData = MutableStateFlow<UserProfile?>(null)
-    val userData: StateFlow<UserProfile?> = _userData
-
-    private val _quote = MutableStateFlow("Tap the button for motivation!")
-    val quote: StateFlow<String> = _quote
+    private val _uiState = MutableStateFlow<ProfileUiState>(ProfileUiState.Loading)
+    val uiState: StateFlow<ProfileUiState> = _uiState.asStateFlow()
 
     init {
-        loadUserData()
+        loadUserProfile()
     }
 
-    @OptIn(UnstableApi::class)
-    fun loadUserData() {
-        val uid = auth.currentUser?.uid ?: return
-        db.collection("users").document(uid).get()
-            .addOnSuccessListener { doc ->
-                if (doc.exists()) {
-                    _userData.value = UserProfile(
-                        name = doc.getString("name") ?: "Unknown",
-                        height = doc.getLong("height")?.toInt() ?: 0,
-                        weight = doc.getLong("weight")?.toInt() ?: 0,
-                        profilePicUrl = doc.getString("profilePictureUrl") ?: ""
-                    )
-                }
+    private fun loadUserProfile() {
+        viewModelScope.launch {
+            try {
+                // In a real app, you would fetch this data from a repository
+                val userData = UserProfileData(
+                    id = "user123",
+                    name = "Alex Johnson",
+                    photoUrl = "https://www.pexels.com/photo/person-holding-camera-1704488/",
+                    height = 175,
+                    weight = 70.5f,
+                    age = 28,
+                    goal = "Build Muscle",
+                    activityLevel = "Intermediate",
+                    workoutsCompleted = 47,
+                    caloriesBurned = 12450,
+                    minutesExercised = 1380,
+                    streakDays = 15
+                )
+                _uiState.value = ProfileUiState.Success(userData)
+            } catch (e: Exception) {
+                _uiState.value = ProfileUiState.Error("Failed to load profile: ${e.message}")
             }
-            .addOnFailureListener {
-                Log.e("ProfileViewModel", "Error loading user data", it)
-            }
+        }
     }
 
-    fun fetchRandomQuote() {
-        db.collection("quotes").get()
-            .addOnSuccessListener { result ->
-                if (!result.isEmpty) {
-                    val quotes = result.map { it.getString("text") ?: "" }
-                    _quote.value = quotes.random()
-                } else {
-                    _quote.value = "No quotes available."
-                }
-            }
-            .addOnFailureListener {
-                _quote.value = "Failed to load quotes."
-            }
+    fun updateWeight(newWeight: Float) {
+        val currentState = _uiState.value
+        if (currentState is ProfileUiState.Success) {
+            _uiState.value = ProfileUiState.Success(
+                currentState.userData.copy(weight = newWeight)
+            )
+            // In a real app, you would also save this to a data source
+        }
+    }
+    fun updateHeight(newHeight: Int) {
+        val currentState = _uiState.value
+        if (currentState is ProfileUiState.Success) {
+            _uiState.value = ProfileUiState.Success(
+                currentState.userData.copy(height = newHeight)
+            )
+            // In a real app, you would also save this to a data source
+        }
+    }
+    fun updateAge(newAge: Int) {
+        val currentState = _uiState.value
+        if (currentState is ProfileUiState.Success) {
+            _uiState.value = ProfileUiState.Success(
+                currentState.userData.copy(age = newAge)
+            )
+            // In a real app, you would also save this to a data source
+        }
+    }
+
+    fun updateGoal(newGoal: String) {
+        val currentState = _uiState.value
+        if (currentState is ProfileUiState.Success) {
+            _uiState.value = ProfileUiState.Success(
+                currentState.userData.copy(goal = newGoal)
+            )
+            // In a real app, you would also save this to a data source
+        }
+    }
+
+    fun updateActivityLevel(newLevel: String) {
+        val currentState = _uiState.value
+        if (currentState is ProfileUiState.Success) {
+            _uiState.value = ProfileUiState.Success(
+                currentState.userData.copy(activityLevel = newLevel)
+            )
+            // In a real app, you would also save this to a data source
+        }
     }
 }
-
-data class UserProfile(
-    val name: String,
-    val height: Int,
-    val weight: Int,
-    val profilePicUrl: String,
-)

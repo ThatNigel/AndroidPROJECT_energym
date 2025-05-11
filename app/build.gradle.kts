@@ -57,13 +57,20 @@ dependencies {
     implementation(libs.androidx.benchmark.macro)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.androidx.media3.common.ktx)
+    implementation(libs.firebase.perf.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    implementation(libs.androidx.appcompat)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
+    implementation( libs.coil.compose.v240)
+    implementation (libs.kotlinx.coroutines.android)
+    implementation(libs.coil.compose)
 
 }
+
+
+

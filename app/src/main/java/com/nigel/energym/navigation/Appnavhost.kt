@@ -34,7 +34,7 @@ fun AppNavHost(
             HomeScreen(userName = String(),navController)
         }
         composable(ROUTE_PROFILE){
-            Profilescreen(navController)
+            Profilescreen(viewModel(),navController)
         }
         composable(ROUTE_WORKOUTDETAILS){
             ExerciseDetailScreen(categoryIndex, viewModel(),navController)

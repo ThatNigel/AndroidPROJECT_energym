@@ -84,7 +84,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .height(400.dp).background(color = Navy_blue)
+                            .height(400.dp).background(color = light_blue)
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
@@ -131,7 +131,7 @@ fun UpperBodyscreen(navController: NavHostController) {
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .height(400.dp).background(color = Blue_Grotto)
+                            .height(400.dp).background(color = light_blue)
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
