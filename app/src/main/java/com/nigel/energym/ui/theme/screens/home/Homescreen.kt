@@ -42,12 +42,16 @@ import com.nigel.energym.navigation.ROUTE_PROFILE
 import com.nigel.energym.navigation.ROUTE_UPPER
 import com.nigel.energym.navigation.ROUTE_WORKOUT
 import kotlin.io.encoding.Base64
+import androidx.compose.ui.res.colorResource
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen( userName: String,navController: NavHostController) {
     val context = LocalContext.current
+    val light_blue = colorResource(id = R.color.light_blue)
+    val Navy_blue = colorResource(id= R.color.Navy_Blue)
+    val Blue_Grotto = colorResource(id = R.color.Blue_Grotto)
 
 
     Scaffold(
@@ -60,10 +64,10 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                             Badge{Text("")} }
                     ) {
                         IconButton(onClick =
-                            {navController.navigate(ROUTE_PROFILE)}) {
+                            {navController.navigate(ROUTE_PROFILE)}) {a
                             Icon(
                                 imageVector = Icons.Filled.Person,
-                                contentDescription = "profile icon",
+                                contentDescription = "profile icon navigation",
                                 tint = Color.White,
                                 modifier = Modifier.size(30.dp)
 
@@ -108,14 +112,14 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 text = "Upper Body Workouts ",
-                                style = MaterialTheme.typography.headlineLarge,color = Color.Magenta
+                                style = MaterialTheme.typography.headlineLarge,color = Navy_blue
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 text = "There are various workouts for the upper body " +
                                         "depending on the area you want to focus on . " +
                                         "It is broken down into Arms(Biceps,Triceps,Forearms),Shoulder and Back," +
-                                        "Chest,Abs", style = MaterialTheme.typography.bodyMedium,color = Color.Green
+                                        "Chest,Abs", style = MaterialTheme.typography.bodyMedium,color = Color.Black
                             )
                         }
                     }
@@ -148,12 +152,12 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 text = "Food Nutrition plan",
-                                style = MaterialTheme.typography.headlineLarge
+                                style = MaterialTheme.typography.headlineLarge,color = Navy_blue
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 text ="For more information click here",
-                                style = MaterialTheme.typography.bodyMedium,color = Color.Green
+                                style = MaterialTheme.typography.bodyMedium,color = Color.Black
                             )
 //
                         }
@@ -183,14 +187,51 @@ fun HomeScreen( userName: String,navController: NavHostController) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Text(
                                 text = "Lower Body Workouts ",
-                                style = MaterialTheme.typography.headlineLarge,color = Color.Magenta
+                                style = MaterialTheme.typography.headlineLarge,color =  Navy_blue
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 text = "There are various workouts for the lower body " +
                                         "depending on the area you want to focus on . " +
                                         "It is broken down into Quads,Glutes,Hamstring and Calves",
-                                style = MaterialTheme.typography.bodyMedium,color = Color.Green
+                                style = MaterialTheme.typography.bodyMedium,color = Color.DarkGray
+                            )
+                        }
+                    }
+                }
+            }
+            item {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp)
+                        .clickable {     val urlIntent = Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("https://www.bicycling.com/")
+                        )
+                            context.startActivity(urlIntent)  },  // Navigate when clicked
+//                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                ) {
+                    Box(modifier = Modifier
+                        .fillMaxSize()
+                        .height(400.dp)) {
+                        // Background Image
+                        Image(
+                            painter = painterResource(id = R.drawable.lowerbody),
+                            contentDescription = "Background Image",
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop // Crop the image to fill the card
+                        )
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = "Cycling ",
+                                style = MaterialTheme.typography.headlineLarge,color =  Navy_blue
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = "Cycling  works all major muscle groups, especially in your legs,while also engaging your core and arms for stability. Regular cycling increases stamina and overall fitness.It's gentle on your joints, making it suitable for people of all ages and fitness levels," +
+                                        " including those with arthritis or  joint issues     \n    Click here to read more about cycling and tips for people who are old .There are Good articles available",
+                                style = MaterialTheme.typography.bodyMedium,color = Color.Black
                             )
                         }
                     }
@@ -198,46 +239,8 @@ fun HomeScreen( userName: String,navController: NavHostController) {
 
             }
         }
-
-//            Card(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(vertical = 8.dp)
-//                .clickable { (navController.navigate(ROUTE_WORKOUT)) },  // Navigate when clicked
-////                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-//        ) {
-//
-//            Box(modifier = Modifier.fillMaxSize()) {
-//                // Background Image
-//                Image(
-//                    painter = painterResource(id = R.drawable.cycling),
-//                    contentDescription = "Background Image",
-//                    modifier = Modifier.fillMaxSize(),
-//                    contentScale = ContentScale.Crop // Crop the image to fill the card
-//                )
-//                Column(modifier = Modifier.padding(16.dp)) {
-//                    Text(
-//                        text = "Cycling",
-//                        style = MaterialTheme.typography.titleMedium
-//                    )
-//                    Spacer(modifier = Modifier.height(4.dp))
-//                    Text(
-//                        text = "Cycling  works all major muscle groups, especially in your legs," +
-//                                " while also engaging your core and arms for stability. " +
-//                                "Regular cycling increases stamina and overall fitness.It's gentle on your joints, " +
-//                                "making it suitable for people of all ages and fitness levels, " +
-//                                "including those with arthritis or" +
-//                                " joint issues.", style = MaterialTheme.typography.bodyMedium
-//                    )
-//                }
-//            }
-//        }
-    }
+            }
         }
-
-
-
-
 @Preview(showBackground = true)
 @Composable
 private fun Homepage() {

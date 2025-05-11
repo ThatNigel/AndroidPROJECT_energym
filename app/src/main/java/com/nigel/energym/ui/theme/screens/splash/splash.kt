@@ -55,12 +55,12 @@ fun SplashScreen(navController: NavHostController) {
                 contentDescription = "Splash Screen logo",
                 modifier = Modifier.size(150.dp)
             )
+            Text(
+                text = " WELCOME TO ENERGYM", color = Color.Black,
+                style = MaterialTheme.typography.headlineLarge,
+                fontWeight = FontWeight.Bold
+            )
         }
-    Text(
-        text = " WELCOME TO ENERGYM", color = Color.Black,
-        style = MaterialTheme.typography.headlineLarge,
-        fontWeight = FontWeight.Bold
-    )
 
 
 }
