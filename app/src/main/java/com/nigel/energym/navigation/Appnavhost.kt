@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.ui.theme.screens.home.HomeScreen
 import com.nigel.energym.ui.theme.screens.login.LoginScreen
+import com.nigel.energym.ui.theme.screens.login.RegisterScreen
 import com.nigel.energym.ui.theme.screens.profile.Profilescreen
 import com.nigel.energym.ui.theme.screens.splash.SplashScreen
 import com.nigel.energym.ui.theme.screens.workouts.ExerciseDetailScreen
@@ -30,11 +31,15 @@ fun AppNavHost(
         composable ( ROUTE_LOGIN ){
             LoginScreen(navController)
         }
+        composable ( ROUTE_REGISTER ){
+            RegisterScreen(navController)
+        }
+
         composable(ROUTE_HOME){
             HomeScreen(userName = String(),navController)
         }
         composable(ROUTE_PROFILE){
-            Profilescreen(viewModel(),navController)
+            Profilescreen(navController)
         }
         composable(ROUTE_WORKOUTDETAILS){
             ExerciseDetailScreen(categoryIndex, viewModel(),navController)

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.gms.google.services)
+
 }
 
 android {
@@ -54,6 +55,7 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
+
     implementation(libs.androidx.benchmark.macro)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.androidx.media3.common.ktx)
@@ -69,6 +71,9 @@ dependencies {
     implementation( libs.coil.compose.v240)
     implementation (libs.kotlinx.coroutines.android)
     implementation(libs.coil.compose)
+
+
+
 
 }
 

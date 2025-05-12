@@ -25,6 +25,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nigel.energym.R
 import com.nigel.energym.navigation.ROUTE_LOGIN
+import com.nigel.energym.navigation.ROUTE_REGISTER
 import kotlinx.coroutines.delay
 
 
@@ -36,7 +37,7 @@ fun SplashScreen(navController: NavHostController) {
 
         LaunchedEffect(Unit) {
             delay(1000)
-            navController.navigate(ROUTE_LOGIN)
+            navController.navigate(ROUTE_REGISTER)
         }
 
 
